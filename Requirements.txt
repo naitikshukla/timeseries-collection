@@ -1,0 +1,6 @@
+# lightgbm-experiments
+lightgbm
+pandas
+scikit-learn
+matplotlib
+statsmodels
