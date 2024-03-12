@@ -37,15 +37,33 @@ The figure shows how a tree assigns different root node observations to its fina
   
   **Cons**: The effectiveness of de-trending heavily relies on the accuracy of the trend estimation method. Incorrect trend estimation can lead to loss of information and inaccuracies in the forecast.
 
-#### Implementation via De-trending with a Linear Model
-[Link to Notebook](./experiment_with_real_data_3_strategies.ipynb)
+#### Implementation via De-trending with a Linear Model and Loess Estimation.
+[Link to Notebook](./experiment_with_real_data_strategies_1.ipynb)
 
-#### 3.2 - Strategy2:
+#### 3.2 - Strategy 2: Differencing the Time Series
+ - Differencing is a statistical technique that transforms a time series into a stationary one. It involves calculating the difference between consecutive observations in the time series. The goal of this process is to help stabilize the series' mean and reduce trends and seasonality, which can make it difficult to analyze and model the data. By taking the difference between two consecutive observations, we can remove the trend component of the series, making it easier to identify patterns and make predictions.
+
+   ##### Pros and Cons
+    **Pros**: It’s a simple approach to make the series more stationary, thus easier for tree-based models to handle.
+
+    **Cons**: Differencing can lead to information loss, and excessive differencing might randomize the series, making it harder to model.
+
+   #### Implementation via diff()(Moving Average)
+    [Link to Notebook](./experiment_with_real_data_strategies_2.ipynb)
+
+#### 3.3 - Strategy 3: Using the Linear Tree Method
+ - For boosting models, integrating a linear component into the tree-building process can allow the model to capture both linear and non-linear patterns, offering a way to include trend extrapolation capabilities.
+
+   ##### Pros and Cons
+   **Pros**: It allows the model to extrapolate trends without transforming the target variable directly, capturing a broader range of patterns in the data.
+
+   **Cons**: This approach is specific to certain models and can increase the model’s complexity and memory requirements.
+    #### Implementation via lightgbm(), linear_tree enabled
+    [Link to notebook](./experiment_with_real_data_strategies_3_lightgbm.ipynb)
 
 ### Installation dependency
 
 #### MAC
  - ```brew install libomp```
- - ```pip install lightgbm```
+ - From home directory: ```pip install -r Requirements.txt```
 
-[def]: experiment_with_real_data_3_strategies.ipynb
