@@ -67,3 +67,9 @@ The figure shows how a tree assigns different root node observations to its fina
  - ```brew install libomp```
  - From home directory: ```pip install -r Requirements.txt```
 
+
+### Another complete example with data from kaggle:
+ - Competition details: https://www.kaggle.com/c/bike-sharing-demand/overview
+ - End to end notebook with MAE: [Link to notebook](./bike_sharing_demand_prediction_lightgbm+prophet.ipynb)
+ 
+
